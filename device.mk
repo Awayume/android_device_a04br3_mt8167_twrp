@@ -1,5 +1,5 @@
 # prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/bbkedu/H9A/kernel
+TARGET_PREBUILT_KERNEL := device/sts-tottori/a04br3/kernel
 
 # Charger
 PRODUCT_PACKAGES += \
