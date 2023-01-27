@@ -27,7 +27,7 @@ jobs:
         run: |
           export ALLOW_MISSING_DEPENDENCIES=true
           source build/envsetup.sh
-          lunch *-eng
+          lunch
           make clean
           make -j8 recoveryimage
       - name: Archive CT3 TWRP
