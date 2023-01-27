@@ -17,16 +17,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: Initialize TWRP
         run: |
-          mkdir twrp
-          cd twrp
           repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
           repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
           repo sync
       - name: Build CT3 TWRP
-        working-directory: twrp
         run: |
           export ALLOW_MISSING_DEPENDENCIES=true
           source build/envsetup.sh
+          ls -a
           lunch
           make clean
           make -j8 recoveryimage
@@ -34,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: TAB-A04-BR3 Kernel
-          path: twrp/out/product/a04br3/recovery.img
+          path: out/product/a04br3/recovery.img
