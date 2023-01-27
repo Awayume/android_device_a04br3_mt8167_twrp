@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
 
 jobs:
   build:
@@ -17,19 +19,24 @@ jobs:
       - uses: actions/checkout@v2
       - name: Initialize TWRP
         run: |
+          cd ..
+          mkdir -p twrp
+          cd twrp
           repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
           repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
-          repo sync
+          repo sync -j8
+          mkdir -p device
+          cp -r ../android_device_a04br3_mt8167_twrp device/a04br3
       - name: Build CT3 TWRP
+        working-directory: ../twrp
         run: |
           export ALLOW_MISSING_DEPENDENCIES=true
           source build/envsetup.sh
-          ls -a
-          lunch
+          lunch a04br3-eng
           make clean
           make -j8 recoveryimage
       - name: Archive CT3 TWRP
         uses: actions/upload-artifact@v2
         with:
-          name: TAB-A04-BR3 Kernel
-          path: out/product/a04br3/recovery.img
+          name: TAB-A04-BR3 TWRP
+          path: ../twrp/out/product/a04br3/recovery.img
