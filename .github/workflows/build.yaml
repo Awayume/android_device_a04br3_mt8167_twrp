@@ -39,4 +39,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: TAB-A04-BR3 TWRP
-          path: $(cd .. && pwd)/twrp/out/product/sts-tottori/a04br3/recovery.img
+          path: |
+            /__w/android_device_a04br3_mt8167_twrp/twrp/out/target/product/a04br3/build_fingerprint.txt
+            /__w/android_device_a04br3_mt8167_twrp/twrp/out/target/product/a04br3/ramdisk-recovery.img
+            /__w/android_device_a04br3_mt8167_twrp/twrp/out/target/product/a04br3/ramdisk.img
