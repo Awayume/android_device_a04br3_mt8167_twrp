@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/cache@v3
         with:
-          path: /home/runner/work/android_device_a04br3_mt8167_twrp/twrp
+          path: /__w/android_device_a04br3_mt8167_twrp/twrp
           key: twrp-${{ github.sha }}
           restore-keys: |
             twrp-
