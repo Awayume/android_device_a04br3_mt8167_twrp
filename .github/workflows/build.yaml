@@ -39,4 +39,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: TAB-A04-BR3 TWRP
-          path: ../twrp/out/product/a04br3/recovery.img
+          path: $(cd .. && pwd)/twrp/out/product/sts-tottori/a04br3/recovery.img
