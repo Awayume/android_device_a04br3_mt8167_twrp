@@ -17,12 +17,6 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v3
-        with:
-          path: /__w/android_device_a04br3_mt8167_twrp/twrp
-          key: twrp-${{ github.sha }}
-          restore-keys: |
-            twrp-
       - name: Initialize TWRP
         run: |
           cd ..
