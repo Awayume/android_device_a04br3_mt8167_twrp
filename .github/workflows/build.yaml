@@ -25,8 +25,8 @@ jobs:
           repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
           repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
           repo sync -j8
-          mkdir -p device
-          cp -r ../android_device_a04br3_mt8167_twrp device/a04br3
+          mkdir -p device/sts-tottori
+          cp -r ../android_device_a04br3_mt8167_twrp device/sts-tottori/a04br3
       - name: Build CT3 TWRP
         working-directory: ../twrp
         run: |
