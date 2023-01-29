@@ -38,8 +38,7 @@ jobs:
       - name: Archive CT3 TWRP
         uses: actions/upload-artifact@v2
         with:
-          name: TAB-A04-BR3 TWRP
+          name: tab-a04-br3_twrp
           path: |
             /__w/android_device_a04br3_mt8167_twrp/twrp/out/target/product/a04br3/build_fingerprint.txt
-            /__w/android_device_a04br3_mt8167_twrp/twrp/out/target/product/a04br3/ramdisk-recovery.img
-            /__w/android_device_a04br3_mt8167_twrp/twrp/out/target/product/a04br3/ramdisk.img
+            /__w/android_device_a04br3_mt8167_twrp/twrp/out/target/product/a04br3/*.img
