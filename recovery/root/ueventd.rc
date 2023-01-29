@@ -1,0 +1,49 @@
+subsystem adf
+	devname uevent_devname
+
+# ueventd can only set permissions on device nodes and their associated
+# sysfs attributes, not on arbitrary paths.
+#
+# format for /dev rules: devname mode uid gid
+# format for /sys rules: nodename attr mode uid gid
+# shortcut: "mtd@NN" expands to "/dev/mtd/mtdNN"
+
+/dev/null                 0666   root       root
+/dev/zero                 0666   root       root
+/dev/full                 0666   root       root
+/dev/ptmx                 0666   root       root
+/dev/tty                  0666   root       root
+/dev/random               0666   root       root
+/dev/urandom              0666   root       root
+# Make HW RNG readable by group system to let EntropyMixer read it.
+/dev/ashmem               0666   root       root
+/dev/binder               0666   root       root
+
+# Anyone can read the logs, but if they're not in the "logs"
+# group, then they'll only see log entries for their UID.
+/dev/pmsg0                0222   root       log
+
+# kms driver for drm based gpu
+/dev/dri/*                0666   root       graphics
+
+# these should not be world writable
+/dev/uhid                 0660   system     net_bt_stack
+/dev/uinput               0660   system     net_bt_stack
+/dev/alarm                0664   system     radio
+/dev/rtc0                 0640   system     system
+/dev/graphics/*           0660   root       graphics
+/dev/input/*              0660   root       input
+/dev/snd/*                0660   system     audio
+/dev/bus/usb/*            0660   root       usb
+/dev/mtp_usb              0660   root       mtp
+/dev/usb_accessory        0660   root       usb
+/dev/tun                  0660   system     vpn
+
+# CDMA radio interface MUX
+/dev/ppp                  0660   radio      vpn
+
+# sysfs properties
+/sys/devices/virtual/input/input*   enable      0660  root   input
+/sys/devices/virtual/input/input*   poll_delay  0660  root   input
+/sys/devices/system/cpu/cpu*   cpufreq/scaling_max_freq   0664  system system
+/sys/devices/system/cpu/cpu*   cpufreq/scaling_min_freq   0664  system system

@@ -1,0 +1,46 @@
+#change partition permission
+/dev/block/platform/soc/11120000.mmc/by-name/boot      0640    root    system
+/dev/block/platform/soc/11120000.mmc/by-name/recovery  0640    root    system
+/dev/block/platform/soc/11120000.mmc/by-name/seccfg    0660    root    system
+/dev/block/platform/soc/11120000.mmc/by-name/proinfo   0660    root    system
+/dev/block/platform/soc/11120000.mmc/by-name/nvram     0660    root    system
+/dev/block/platform/soc/11120000.mmc/by-name/para      0660    root    system
+/dev/block/platform/soc/11120000.mmc/by-name/logo      0660    root    system
+
+# Connectivity
+/dev/stpwmt               0660   system     system
+/dev/wmtdetect            0660   system     system
+
+# BT
+/dev/stpbt                0660   bluetooth  net_bt_stack
+
+# WIFI
+/dev/wmtWifi              0660   system     system
+
+# MTK BTIF driver
+/dev/btif                 0600   system     system
+
+# MTK in-house TEE
+/dev/trustzone            0660   system       drmrpc
+
+# RGX device node
+/dev/pvr_sync             0666   root       root
+
+# RPMB
+/dev/block/mmcblk0rpmb    0660   root       system
+
+# LED
+/sys/devices/platform/leds-mt65xx/leds/green delay_off 0664 system system
+/sys/devices/platform/leds-mt65xx/leds/green delay_on 0664 system system
+
+/sys/devices/platform/leds-mt65xx/leds/red delay_off 0664 system system
+/sys/devices/platform/leds-mt65xx/leds/red delay_on 0664 system system
+
+/sys/devices/platform/leds-mt65xx/leds/blue delay_off 0664 system system
+/sys/devices/platform/leds-mt65xx/leds/blue delay_on 0664 system system
+
+/sys/devices/platform/leds-mt65xx/leds/lcd-backlight delay_off 0664 system system
+/sys/devices/platform/leds-mt65xx/leds/lcd-backlight delay_on 0664 system system
+
+# webcam
+/dev/video*               0660   system     camera

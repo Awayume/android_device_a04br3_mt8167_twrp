@@ -1,17 +1,9 @@
-# prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/sts-tottori/a04br3/kernel
+#
+# Copyright (C) 2023 The Android Open Source Project
+# Copyright (C) 2023 SebaUbuntu's TWRP device tree generator
+# Copyright (C) 2023 Awayume
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
-# Charger
-PRODUCT_PACKAGES += \
-   charger_res_images \
-   charger
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/fstab.mt8167:root/fstab.mt8167 \
-    $(LOCAL_PATH)/recovery/init.recovery.mt8167.rc:root/init.recovery.mt8167.rc \
-    $(LOCAL_PATH)/recovery/init.recovery.service.rc:root/init.recovery.service.rc \
-    $(LOCAL_PATH)/recovery/ueventd.mt8167.rc:root/ueventd.mt8167.rc
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
+LOCAL_PATH := device/sts-tottori/a04br3
